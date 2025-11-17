@@ -35,37 +35,47 @@ This directory contains comprehensive tests for the data models and validation l
 
 ### Run all tests
 ```bash
-pytest
+poetry run pytest
 ```
 
 ### Run with coverage report
 ```bash
-pytest --cov=src/adk/models --cov-report=term-missing
+poetry run pytest --cov=src/adk/models --cov-report=term-missing
 ```
 
 ### Run specific test file
 ```bash
-pytest tests/test_event_model.py
+poetry run pytest tests/test_event_model.py
 ```
 
 ### Run specific test class
 ```bash
-pytest tests/test_event_model.py::TestEventDateValidation
+poetry run pytest tests/test_event_model.py::TestEventDateValidation
 ```
 
 ### Run specific test
 ```bash
-pytest tests/test_event_model.py::TestEventDateValidation::test_end_before_start
+poetry run pytest tests/test_event_model.py::TestEventDateValidation::test_end_before_start
 ```
 
 ### Run tests matching a pattern
 ```bash
-pytest -k "validation"
+poetry run pytest -k "validation"
 ```
 
 ### Run with verbose output
 ```bash
-pytest -v
+poetry run pytest -v
+```
+
+### Alternative: Using Poetry shell
+```bash
+# Activate Poetry's virtual environment
+poetry shell
+
+# Then run commands without "poetry run" prefix
+pytest
+pytest --cov=src/adk/models
 ```
 
 ## Test Fixtures
