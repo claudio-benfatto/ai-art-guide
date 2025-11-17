@@ -1,0 +1,154 @@
+version: "1.0"
+schema_version: "1.0"
+data_version: "v1"
+
+# Embedding Configuration
+embedding:
+  model_id: "text-multilingual-embedding-002"
+  dimension: 768
+  batch_size: 100
+  use_vertex: true  # Set to false for local mock mode
+
+# Generation Model Configuration
+generation:
+  model_id: "gemini-1.5-flash"
+  temperature: 0.7
+  max_output_tokens: 512
+  use_vertex: true  # Set to false for template-based fallback
+
+# Scoring Weights
+scoring:
+  weights:
+    cosine_similarity: 0.5
+    tag_overlap: 0.2
+    novelty: 0.2
+    temporal_fit: 0.1
+  diversity:
+    max_same_venue: 1
+    min_tag_variety: 2  # Minimum tag diversity in top results
+
+# Memory Configuration
+memory:
+  decay_lambda: 0.02  # Weekly decay factor
+  summary_frequency: 3  # Generate summary every N turns
+  max_recent_utterances: 5
+  max_recent_recommendations: 10
+
+# Retrieval Configuration
+retrieval:
+  max_results: 12
+  default_geo_radius_km: 5.0
+  similarity_threshold: 0.3  # Minimum cosine similarity for inclusion
+  temporal_window_days: 30  # Default look-ahead for events
+
+# Controlled Vocabulary (Tags)
+controlled_vocabulary:
+  - modern
+  - contemporary
+  - photography
+  - painting
+  - sculpture
+  - installation
+  - street
+  - abstract
+  - surrealism
+  - conceptual
+  - minimalism
+  - performance
+  - digital
+  - mixed-media
+  - urban
+  - nature
+  - portrait
+  - experimental
+  - political
+  - feminist
+  - family-friendly
+  - educational
+  - immersive
+  - interactive
+  - baroque
+  - renaissance
+  - video
+
+# Cost Bucket Definitions
+cost_buckets:
+  free: 0
+  low: 10    # Up to 10 EUR
+  mid: 20    # 10-20 EUR
+  high: 100  # 20+ EUR
+
+# Category Definitions
+categories:
+  - gallery
+  - museum
+  - street
+  - pop-up
+  - opening
+  - cultural-center
+
+# Venue Types
+venue_types:
+  - museum
+  - gallery
+  - street-cluster
+  - cultural-center
+  - outdoor-space
+
+# Language Support
+languages:
+  - en
+  - es
+
+# Barcelona Geo Boundaries (for validation)
+geo_bounds:
+  lat_min: 41.30
+  lat_max: 41.50
+  lon_min: 2.00
+  lon_max: 2.30
+
+# Agent Configuration
+agents:
+  orchestrator:
+    enabled: true
+    intent_keywords:
+      recommend: ["recommend", "suggest", "show", "what", "see", "visit"]
+      preference: ["like", "love", "prefer", "interested", "into"]
+      save: ["save", "bookmark", "add", "remember"]
+      explain: ["why", "explain", "more about", "tell me"]
+  
+  preference:
+    enabled: true
+    weight_bounds:
+      min: 1
+      max: 5
+    weight_delta: 1  # Increment per reinforcement
+  
+  retrieval:
+    enabled: true
+    use_filters: true
+  
+  recommendation:
+    enabled: true
+    generate_rationale: true
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  structured: true
+  log_vertex_calls: true
+  log_agent_chain: true
+  log_tool_calls: true
+
+# Performance Targets
+performance:
+  latency_target_p95_ms: 3000  # Local
+  latency_target_p95_cloud_ms: 4000  # Cloud Run
+  token_budget_per_turn: 1500
+
+# Fallback Mode Configuration
+fallback:
+  enabled: true
+  hashed_embedding_seed: 42
+  template_rationale: "Recommended: {title}. Reason: matches your interest in {primary_tag}."
+  preference_extraction_mode: "heuristic"  # keyword matching
