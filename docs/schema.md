@@ -21,17 +21,17 @@ Represents visual art events, exhibitions, and experiences in Barcelona.
 | description_es | string | Yes | Spanish description | "Explora la evolución de..." |
 | tags | string[] | Yes | Controlled vocabulary tags | ["modern", "photography", "contemporary"] |
 | category | string | Yes | Event category | "gallery", "museum", "street", "pop-up", "opening" |
-| start_date | string | Yes | ISO 8601 date | "2025-11-20" |
-| end_date | string | Yes | ISO 8601 date | "2025-12-05" |
+| domain | string | No | Cultural domain | "visual-art", "music", "theatre", "cinema", "multi" |
+| start_date | string | Yes | ISO 8601 date or "unknown" | "2025-11-20", "unknown" |
+| end_date | string | Yes | ISO 8601 date or "unknown" | "2025-12-05", "unknown" |
 | venue_id | string | Yes | References Venue.id | "v_01" |
-| cost_bucket | string | Yes | Cost category | "free", "low" (<10€), "mid" (10-20€), "high" (>20€) |
-| outdoor | boolean | Yes | Indoor or outdoor | true |
-| popularity_score | float | Yes | Popularity proxy (0-1) | 0.75 |
+| cost_bucket | string | Yes | Cost category or "unknown" | "free", "low" (<10€), "mid" (10-20€), "high" (>20€), "unknown" |
+| outdoor | boolean\|string | Yes | Indoor/outdoor or "unknown" | true, false, "unknown" |
 | latitude | float | Yes | Geo coordinate | 41.3851 |
 | longitude | float | Yes | Geo coordinate | 2.1734 |
 | source_type | string | Yes | Data origin | "curated", "external" |
 | accessibility_notes | string | No | Optional accessibility info | "Wheelchair accessible" |
-| booking_url | string | No | Optional booking link | "https://..." |
+| booking_url | string | No | Optional booking link or "unknown" | "https://...", "unknown" |
 
 ### Controlled Vocabulary (Tags)
 
@@ -45,9 +45,11 @@ Maximum 30 tags for simplicity; expandable later.
 ### Validation Rules
 
 - `id` must be unique across dataset.
-- `start_date` <= `end_date`.
+- `start_date` <= `end_date` when both are dates (not "unknown").
 - `tags` array length: 2-6 entries.
-- `cost_bucket` in allowed set.
+- `cost_bucket` in allowed set: "free", "low", "mid", "high", "unknown".
+- `outdoor` must be boolean (true/false) or string "unknown".
+- `domain` (optional) in allowed set: "visual-art", "music", "theatre", "cinema", "multi".
 - Coordinates must be within Barcelona bounding box (approx lat 41.3-41.5, lon 2.0-2.3).
 
 ---

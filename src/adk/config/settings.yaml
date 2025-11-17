@@ -77,6 +77,15 @@ cost_buckets:
   low: 10    # Up to 10 EUR
   mid: 20    # 10-20 EUR
   high: 100  # 20+ EUR
+  unknown: null  # Cost information not available
+
+# Domain Types (optional field for multi-domain expansion)
+domains:
+  - visual-art
+  - music
+  - theatre
+  - cinema
+  - multi
 
 # Category Definitions
 categories:
