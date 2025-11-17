@@ -72,6 +72,7 @@ class Event(BaseModel):
     end_date: Union[date, Literal["unknown"]] = Field(description="Event end date or 'unknown'")
     venue_id: str = Field(description="References Venue.id")
     cost_bucket: Literal["free", "low", "mid", "high", "unknown"]
+    cost_range: Optional[str] = Field(default=None, description="Human-friendly cost range (e.g., €0, €5–€10, €10–€25, €25+ or 'unknown')")
     outdoor: Union[bool, Literal["unknown"]] = Field(description="Indoor/outdoor or 'unknown'")
     latitude: float = Field(description="Latitude")
     longitude: float = Field(description="Longitude")

@@ -18,6 +18,7 @@ events:
   end_date: 2026-01-15
   venue_id: v_01
   cost_bucket: mid
+  cost_range: "€10–€25"
   outdoor: false
   latitude: 41.3851
   longitude: 2.1734
@@ -46,6 +47,7 @@ events:
   end_date: 2025-12-20
   venue_id: v_02
   cost_bucket: free
+  cost_range: "€0"
   outdoor: true
   latitude: 41.3801
   longitude: 2.17
@@ -74,6 +76,7 @@ events:
   end_date: 2026-02-28
   venue_id: v_03
   cost_bucket: mid
+  cost_range: "€10–€25"
   outdoor: false
   latitude: 41.3688
   longitude: 2.1697
@@ -102,6 +105,7 @@ events:
   end_date: 2026-01-10
   venue_id: v_04
   cost_bucket: low
+  cost_range: "€5–€10"
   outdoor: false
   latitude: 41.3875
   longitude: 2.1699
@@ -131,6 +135,7 @@ events:
   end_date: 2026-01-30
   venue_id: v_05
   cost_bucket: free
+  cost_range: "€0"
   outdoor: false
   latitude: 41.3838
   longitude: 2.1864
@@ -158,6 +163,7 @@ events:
   end_date: 2025-12-31
   venue_id: v_06
   cost_bucket: low
+  cost_range: "€5–€10"
   outdoor: false
   latitude: 41.3828
   longitude: 2.1761
@@ -186,6 +192,138 @@ events:
   end_date: unknown
   venue_id: v_07
   cost_bucket: unknown
+  cost_range: "unknown"
+  outdoor: unknown
+  latitude: 41.3995
+  longitude: 2.198
+  source_type: external
+  accessibility_notes: Accessibility varies by studio location
+  booking_url: unknown
+
+
+- id: evt_008
+  title_en: Conceptual Minimalism Showcase
+  title_es: Muestra de Minimalismo Conceptual
+  description_en: A refined survey of conceptual and minimalist installations exploring reduction, idea-first creation, and spatial tension. Works invite slow contemplation and challenge material assumptions through experimental approaches.
+  description_es: Una selección refinada de instalaciones conceptuales y minimalistas que exploran la reducción, la creación basada en ideas y la tensión espacial. Las obras invitan a la contemplación lenta y desafían supuestos materiales mediante enfoques experimentales.
+  tags:
+    - conceptual
+    - minimalism
+    - experimental
+    - installation
+  category: gallery
+  domain: visual-art
+  start_date: 2025-12-05
+  end_date: 2026-01-20
+  venue_id: v_08
+  cost_bucket: mid
+  cost_range: "€10–€25"
+  outdoor: false
+  latitude: 41.3958
+  longitude: 2.161
+  source_type: curated
+  accessibility_notes: Quiet gallery spaces, seating available
+  booking_url: null
+
+
+- id: evt_009
+  title_en: Immersive Performance Night
+  title_es: Noche de Performance Inmersiva
+  description_en: A one-night program of live performance art blending movement, projected light, and audience interaction. Guests experience an immersive journey through layered soundscapes and spatial storytelling.
+  description_es: Un programa de una noche de arte performativo que mezcla movimiento, luz proyectada e interacción con el público. Los asistentes experimentan un recorrido inmersivo a través de paisajes sonoros y narrativa espacial.
+  tags:
+    - performance
+    - immersive
+    - interactive
+    - experimental
+  category: cultural-center
+  domain: visual-art
+  start_date: 2025-12-12
+  end_date: 2025-12-12
+  venue_id: v_09
+  cost_bucket: high
+  cost_range: "€25+"
+  outdoor: false
+  latitude: 41.3705
+  longitude: 2.1602
+  source_type: curated
+  accessibility_notes: Limited seating; advance booking recommended
+  booking_url: null
+
+
+- id: evt_010
+  title_en: Eco Nature Light Installations
+  title_es: Instalaciones de Luz y Naturaleza Eco
+  description_en: Outdoor eco-inspired light and sound installations near the waterfront explore organic forms, sustainability themes, and sensory calm. Evening activation creates a reflective public-space experience.
+  description_es: Instalaciones al aire libre de luz y sonido inspiradas en la ecología cerca del frente marítimo exploran formas orgánicas, temas de sostenibilidad y calma sensorial. La activación nocturna crea una experiencia reflexiva en espacio público.
+  tags:
+    - nature
+    - installation
+    - experimental
+    - street
+  category: street
+  domain: null
+  start_date: 2025-12-15
+  end_date: 2026-01-05
+  venue_id: v_10
+  cost_bucket: free
+  cost_range: "€0"
+  outdoor: true
+  latitude: 41.3816
+  longitude: 2.189
+  source_type: curated
+  accessibility_notes: Flat promenade, accessible pathways
+  booking_url: null
+
+
+- id: evt_011
+  title_en: Portrait & Video Futures
+  title_es: Futuro del Retrato y Video
+  description_en: Digital portrait reinterpretations merge video loops, layered projections, and painterly algorithms to explore identity and presence. The show bridges classical portrait logic with new-media aesthetics.
+  description_es: Reinterpretaciones digitales del retrato que combinan bucles de video, proyecciones en capas y algoritmos pictóricos para explorar identidad y presencia. La muestra une la lógica clásica del retrato con la estética de nuevos medios.
+  tags:
+    - portrait
+    - video
+    - digital
+    - mixed-media
+  category: gallery
+  domain: visual-art
+  start_date: 2025-12-08
+  end_date: 2026-02-10
+  venue_id: v_11
+  cost_bucket: mid
+  cost_range: "€10–€25"
+  outdoor: false
+  latitude: 41.405
+  longitude: 2.1567
+  source_type: curated
+  accessibility_notes: Projection rooms; low lighting environments
+  booking_url: null
+
+
+- id: evt_012
+  title_en: Family Art Exploration Workshop
+  title_es: Taller Familiar de Exploración Artística
+  description_en: A hands-on family-friendly workshop introducing painting and sculpture basics through playful educational prompts. Facilitators guide multi-age participants in collaborative creative exercises.
+  description_es: Un taller práctico apto para familias que introduce fundamentos de pintura y escultura mediante consignas educativas lúdicas. Facilitadores guían a participantes de varias edades en ejercicios creativos colaborativos.
+  tags:
+    - family-friendly
+    - educational
+    - painting
+    - sculpture
+  category: cultural-center
+  domain: visual-art
+  start_date: 2025-12-19
+  end_date: 2025-12-19
+  venue_id: v_12
+  cost_bucket: low
+  cost_range: "€5–€10"
+  outdoor: false
+  latitude: 41.375
+  longitude: 2.14
+  source_type: curated
+  accessibility_notes: Child-accessible workspaces and materials
+  booking_url: null
   outdoor: unknown
   latitude: 41.3995
   longitude: 2.198
@@ -269,4 +407,55 @@ venues:
   longitude: 2.198
   opening_hours: Open studios typically Sat 11:00-20:00
   accessibility_notes: Varies by individual studio
+  url: null
+
+
+- id: v_08
+  name: Eixample Minimal Art Space
+  type: gallery
+  neighborhood: Eixample
+  latitude: 41.3958
+  longitude: 2.161
+  opening_hours: Wed-Sat 12:00-20:00
+  accessibility_notes: Ground-level access
+  url: null
+
+- id: v_09
+  name: Poble Sec Performance Hub
+  type: cultural-center
+  neighborhood: Poble Sec
+  latitude: 41.3705
+  longitude: 2.1602
+  opening_hours: Event-based, evenings
+  accessibility_notes: Ramp entrance, limited seating
+  url: null
+
+- id: v_10
+  name: Barceloneta Waterfront Installations
+  type: outdoor-space
+  neighborhood: Barceloneta
+  latitude: 41.3816
+  longitude: 2.189
+  opening_hours: Daily 17:00-23:00 (light activation)
+  accessibility_notes: Flat promenade
+  url: null
+
+- id: v_11
+  name: Gràcia New Media Gallery
+  type: gallery
+  neighborhood: Gràcia
+  latitude: 41.405
+  longitude: 2.1567
+  opening_hours: Tue-Sun 11:00-19:00
+  accessibility_notes: Accessible entrance, low-light rooms
+  url: null
+
+- id: v_12
+  name: Sants Creative Learning Center
+  type: cultural-center
+  neighborhood: Sants
+  latitude: 41.375
+  longitude: 2.14
+  opening_hours: Sat workshops 10:00-16:00
+  accessibility_notes: Family-friendly facilities
   url: null
