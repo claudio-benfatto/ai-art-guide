@@ -30,12 +30,6 @@ CONTROLLED_VOCABULARY = {
     "baroque", "renaissance", "video"
 }
 
-# Barcelona bounding box
-BARCELONA_LAT_MIN = 41.30
-BARCELONA_LAT_MAX = 41.50
-BARCELONA_LON_MIN = 2.00
-BARCELONA_LON_MAX = 2.30
-
 
 # ============================================================================
 # Event Schema
@@ -79,8 +73,8 @@ class Event(BaseModel):
     venue_id: str = Field(description="References Venue.id")
     cost_bucket: Literal["free", "low", "mid", "high", "unknown"]
     outdoor: Union[bool, Literal["unknown"]] = Field(description="Indoor/outdoor or 'unknown'")
-    latitude: float = Field(ge=BARCELONA_LAT_MIN, le=BARCELONA_LAT_MAX, description="Latitude")
-    longitude: float = Field(ge=BARCELONA_LON_MIN, le=BARCELONA_LON_MAX, description="Longitude")
+    latitude: float = Field(description="Latitude")
+    longitude: float = Field(description="Longitude")
     source_type: Literal["curated", "external"]
     accessibility_notes: Optional[str] = None
     booking_url: Optional[Union[str, Literal["unknown"]]] = None
@@ -142,8 +136,8 @@ class Venue(BaseModel):
     name: str = Field(min_length=2, max_length=200, description="Venue name")
     type: Literal["museum", "gallery", "street-cluster", "cultural-center", "outdoor-space"]
     neighborhood: str = Field(min_length=2, max_length=100, description="Barcelona neighborhood")
-    latitude: float = Field(ge=BARCELONA_LAT_MIN, le=BARCELONA_LAT_MAX, description="Latitude")
-    longitude: float = Field(ge=BARCELONA_LON_MIN, le=BARCELONA_LON_MAX, description="Longitude")
+    latitude: float = Field(description="Latitude")
+    longitude: float = Field(description="Longitude")
     opening_hours: Optional[str] = None
     accessibility_notes: Optional[str] = None
     url: Optional[str] = None

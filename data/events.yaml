@@ -9,9 +9,9 @@ events:
     icónicas del siglo XX. Esta exposición presenta pioneros que revolucionaron la
     narrativa visual mediante técnicas experimentales y elecciones compositivas audaces.
   tags:
-  - modern
-  - photography
-  - contemporary
+    - modern
+    - photography
+    - contemporary
   category: museum
   domain: null
   start_date: 2025-11-20
@@ -24,6 +24,8 @@ events:
   source_type: curated
   accessibility_notes: Wheelchair accessible, audio guide available
   booking_url: null
+
+
 - id: evt_002
   title_en: 'Street Art Walking Tour: El Raval'
   title_es: 'Tour de Arte Urbano: El Raval'
@@ -34,10 +36,10 @@ events:
     barrio de El Raval de Barcelona. Este paseo guiado explora la intersección de
     la cultura callejera, la expresión política y la estética urbana contemporánea.
   tags:
-  - street
-  - urban
-  - contemporary
-  - political
+    - street
+    - urban
+    - contemporary
+    - political
   category: street
   domain: null
   start_date: 2025-11-18
@@ -50,6 +52,8 @@ events:
   source_type: curated
   accessibility_notes: Outdoor walking tour, uneven surfaces
   booking_url: null
+
+
 - id: evt_003
   title_en: 'Surrealist Dreams: Miró and Beyond'
   title_es: 'Sueños Surrealistas: Miró y Más Allá'
@@ -60,10 +64,10 @@ events:
     surrealistas. Esta exposición presenta pinturas, esculturas e instalaciones que
     desafían la percepción y abrazan el subconsciente.
   tags:
-  - surrealism
-  - painting
-  - sculpture
-  - abstract
+    - surrealism
+    - painting
+    - sculpture
+    - abstract
   category: museum
   domain: null
   start_date: 2025-11-25
@@ -76,6 +80,8 @@ events:
   source_type: curated
   accessibility_notes: Fully accessible, tactile tours available
   booking_url: https://www.fmirobcn.org
+
+
 - id: evt_004
   title_en: 'Digital Futures: Interactive Installations'
   title_es: 'Futuros Digitales: Instalaciones Interactivas'
@@ -86,10 +92,10 @@ events:
     los límites entre espectador y obra de arte. Esta exposición inmersiva invita
     a la participación activa mediante sensores de movimiento, RV y algoritmos generativos.
   tags:
-  - digital
-  - installation
-  - interactive
-  - contemporary
+    - digital
+    - installation
+    - interactive
+    - contemporary
   category: gallery
   domain: null
   start_date: 2025-12-01
@@ -102,6 +108,8 @@ events:
   source_type: curated
   accessibility_notes: Interactive elements may require mobility
   booking_url: null
+
+
 - id: evt_005
   title_en: 'Feminist Perspectives: Women in Contemporary Art'
   title_es: 'Perspectivas Feministas: Mujeres en el Arte Contemporáneo'
@@ -113,10 +121,10 @@ events:
     y documentación de performance. Esta exposición centra voces históricamente marginadas
     en el discurso artístico.
   tags:
-  - feminist
-  - contemporary
-  - political
-  - mixed-media
+    - feminist
+    - contemporary
+    - political
+    - mixed-media
   category: cultural-center
   domain: null
   start_date: 2025-11-22
@@ -129,6 +137,8 @@ events:
   source_type: curated
   accessibility_notes: Wheelchair accessible, sign language tours available
   booking_url: null
+
+
 - id: evt_006
   title_en: Gothic Quarter Hidden Gems
   title_es: Joyas Escondidas del Barrio Gótico
@@ -139,9 +149,9 @@ events:
     y edificios históricos del Barrio Gótico. Este tour curado revela obras maestras
     menos conocidas que abarcan siglos de tradición artística catalana.
   tags:
-  - baroque
-  - renaissance
-  - educational
+    - baroque
+    - renaissance
+    - educational
   category: street
   domain: null
   start_date: 2025-11-18
@@ -154,6 +164,8 @@ events:
   source_type: curated
   accessibility_notes: Historic buildings may have limited accessibility
   booking_url: null
+
+
 - id: evt_007
   title_en: Emerging Artists Open Studios
   title_es: Estudios Abiertos de Artistas Emergentes
@@ -164,10 +176,10 @@ events:
     en el distrito creativo de Poblenou. Experimenta obras en progreso en múltiples
     medios incluyendo pintura, escultura e instalaciones de medios mixtos.
   tags:
-  - contemporary
-  - mixed-media
-  - painting
-  - sculpture
+    - contemporary
+    - mixed-media
+    - painting
+    - sculpture
   category: pop-up
   domain: visual-art
   start_date: unknown
@@ -180,6 +192,8 @@ events:
   source_type: external
   accessibility_notes: Accessibility varies by studio location
   booking_url: unknown
+
+
 venues:
 - id: v_01
   name: MACBA - Museum of Contemporary Art of Barcelona
@@ -190,6 +204,8 @@ venues:
   opening_hours: Mon, Wed-Fri 11:00-19:30, Sat 10:00-21:00, Sun 10:00-15:00
   accessibility_notes: Fully accessible, elevators available
   url: https://www.macba.cat
+
+
 - id: v_02
   name: El Raval Street Art Cluster
   type: street-cluster
@@ -199,6 +215,8 @@ venues:
   opening_hours: Open 24/7
   accessibility_notes: Outdoor public spaces
   url: null
+
+
 - id: v_03
   name: Fundació Joan Miró
   type: museum
@@ -208,6 +226,8 @@ venues:
   opening_hours: Tue-Sat 10:00-20:00, Sun 10:00-15:00
   accessibility_notes: Wheelchair accessible, audio guides
   url: https://www.fmirobcn.org
+
+
 - id: v_04
   name: Arts Santa Mònica
   type: cultural-center
@@ -217,6 +237,8 @@ venues:
   opening_hours: Tue-Sat 11:00-21:00, Sun 11:00-17:00
   accessibility_notes: Elevator access, adapted restrooms
   url: https://artssantamonica.gencat.cat
+
+
 - id: v_05
   name: CCCB - Centre de Cultura Contemporània de Barcelona
   type: cultural-center
@@ -226,6 +248,8 @@ venues:
   opening_hours: Tue-Sun 11:00-20:00
   accessibility_notes: Fully accessible
   url: https://www.cccb.org
+
+
 - id: v_06
   name: Gothic Quarter Historic Route
   type: street-cluster
@@ -235,6 +259,8 @@ venues:
   opening_hours: Varies by location
   accessibility_notes: Historic cobblestone streets
   url: null
+
+
 - id: v_07
   name: Poblenou Art District
   type: street-cluster
