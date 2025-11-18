@@ -39,6 +39,10 @@ def main():
             'embedding': vec,
             'tags': e.get('tags', []),
             'text_concat': e['text_concat'],
+            'start_date': str(e.get('start_date', 'unknown')),
+            'end_date': str(e.get('end_date', 'unknown')),
+            'latitude': e.get('latitude'),
+            'longitude': e.get('longitude'),
         })
     payload = {
         'schema_version': 1,
