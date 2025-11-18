@@ -93,3 +93,6 @@ dmypy.json
 
 # Local only docs
 technical_planning.md
+
+# Ignore embeddings cache
+.hf_cache/
