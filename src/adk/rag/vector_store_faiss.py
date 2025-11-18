@@ -128,6 +128,10 @@ class FaissVectorStore:
         Returns:
             List of results with doc_id, score, metadata (and distance_km if geo filter applied)
         """
+        # Handle empty store
+        if len(self._metadata) == 0:
+            return []
+        
         q = np.array(embedding, dtype='float32')
         if self.normalize:
             faiss.normalize_L2(q.reshape(1, -1))

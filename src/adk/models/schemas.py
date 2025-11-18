@@ -74,8 +74,8 @@ class Event(BaseModel):
     cost_bucket: Literal["free", "low", "mid", "high", "unknown"]
     cost_range: Optional[str] = Field(default=None, description="Human-friendly cost range (e.g., €0, €5–€10, €10–€25, €25+ or 'unknown')")
     outdoor: Union[bool, Literal["unknown"]] = Field(description="Indoor/outdoor or 'unknown'")
-    latitude: float = Field(description="Latitude")
-    longitude: float = Field(description="Longitude")
+    latitude: float = Field(ge=41.30, le=41.50, description="Latitude (Barcelona bounds)")
+    longitude: float = Field(ge=2.00, le=2.30, description="Longitude (Barcelona bounds)")
     source_type: Literal["curated", "external"]
     accessibility_notes: Optional[str] = None
     booking_url: Optional[Union[str, Literal["unknown"]]] = None
@@ -137,8 +137,8 @@ class Venue(BaseModel):
     name: str = Field(min_length=2, max_length=200, description="Venue name")
     type: Literal["museum", "gallery", "street-cluster", "cultural-center", "outdoor-space"]
     neighborhood: str = Field(min_length=2, max_length=100, description="Barcelona neighborhood")
-    latitude: float = Field(description="Latitude")
-    longitude: float = Field(description="Longitude")
+    latitude: float = Field(ge=41.30, le=41.50, description="Latitude (Barcelona bounds)")
+    longitude: float = Field(ge=2.00, le=2.30, description="Longitude (Barcelona bounds)")
     opening_hours: Optional[str] = None
     accessibility_notes: Optional[str] = None
     url: Optional[str] = None

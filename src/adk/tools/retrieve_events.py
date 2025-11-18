@@ -37,6 +37,7 @@ class EventResult:
     start_date: str
     end_date: str
     venue_id: str
+    venue_name: str  # Venue name for display
     cost_bucket: str
     latitude: float
     longitude: float
@@ -144,6 +145,7 @@ def retrieve_events(input_data: RetrieveEventsInput) -> RetrieveEventsOutput:
             start_date=result.metadata['start_date'],
             end_date=result.metadata['end_date'],
             venue_id=result.metadata['venue_id'],
+            venue_name=result.metadata['venue_name'],
             cost_bucket=result.metadata['cost_bucket'],
             latitude=result.metadata['latitude'],
             longitude=result.metadata['longitude'],

@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional
 
 import yaml
 
-from adk.models.schemas import Event
+from adk.models.schemas import DataContainer, Event, Venue
 from adk.rag.embeddings import get_embeddings
 from adk.rag.interfaces import EmbeddingsInterface, VectorStoreInterface
 from adk.rag.vector_store_faiss import FaissVectorStore
@@ -49,18 +49,26 @@ class EventRetriever:
         self.embeddings = embeddings or get_embeddings()
         self.vector_store = vector_store or FaissVectorStore(dim=self.embeddings.dim)
         
-        # Load events into memory
+        # Load events and venues into memory
         self.events_by_id: Dict[str, Event] = {}
-        self._load_events()
+        self.venues_by_id: Dict[str, Venue] = {}
+        self._load_data()
     
-    def _load_events(self) -> None:
-        """Load events from YAML into memory."""
+    def _load_data(self) -> None:
+        """Load events and venues from YAML into memory."""
         with open(self.events_path, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
         
-        for event_data in data.get('events', []):
-            event = Event(**event_data)
+        # Load DataContainer to get venues
+        data_container = DataContainer(**data)
+        
+        # Cache events
+        for event in data_container.events:
             self.events_by_id[event.id] = event
+        
+        # Cache venues
+        for venue in data_container.venues:
+            self.venues_by_id[venue.id] = venue
     
     def load_precomputed_embeddings(self, embeddings_path: Path) -> None:
         """
@@ -165,6 +173,10 @@ class EventRetriever:
             start_date_str = metadata.get('start_date', str(event.start_date))
             end_date_str = metadata.get('end_date', str(event.end_date))
             
+            # Get venue name
+            venue = self.venues_by_id.get(event.venue_id)
+            venue_name = venue.name if venue else event.venue_id
+            
             results.append(RetrievalResult(
                 event_id=event.id,
                 raw_score=result['score'],
@@ -176,6 +188,7 @@ class EventRetriever:
                     'start_date': start_date_str,
                     'end_date': end_date_str,
                     'venue_id': event.venue_id,
+                    'venue_name': venue_name,
                     'cost_bucket': event.cost_bucket,
                     'latitude': event.latitude,
                     'longitude': event.longitude,
