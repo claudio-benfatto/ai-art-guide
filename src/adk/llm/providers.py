@@ -137,6 +137,72 @@ class OpenAIProvider(LLMProvider):
         return "openai"
 
 
+class OllamaProvider(LLMProvider):
+    """
+    Ollama provider for running local LLMs (Llama3, Mistral, etc).
+    Requires Ollama to be running locally: ollama serve
+    """
+    
+    def __init__(self, model: str = "llama3", base_url: str = "http://localhost:11434"):
+        self.model = model
+        self.base_url = base_url
+        
+        try:
+            import requests
+            self.requests = requests
+        except ImportError:
+            raise ImportError("requests package not installed. Run: pip install requests")
+    
+    def generate(self, messages: List[Message], temperature: float = 0.7, max_tokens: int = 500) -> LLMResponse:
+        """Generate response using Ollama API."""
+        # Build prompt from messages
+        prompt_parts = []
+        for msg in messages:
+            if msg.role == "system":
+                prompt_parts.append(f"System: {msg.content}")
+            elif msg.role == "user":
+                prompt_parts.append(f"User: {msg.content}")
+            elif msg.role == "assistant":
+                prompt_parts.append(f"Assistant: {msg.content}")
+        
+        prompt_parts.append("Assistant:")
+        prompt = "\n\n".join(prompt_parts)
+        
+        # Call Ollama API
+        try:
+            response = self.requests.post(
+                f"{self.base_url}/api/generate",
+                json={
+                    "model": self.model,
+                    "prompt": prompt,
+                    "stream": False,
+                    "options": {
+                        "temperature": temperature,
+                        "num_predict": max_tokens
+                    }
+                },
+                timeout=120  # Ollama can be slow on first load
+            )
+            response.raise_for_status()
+            data = response.json()
+            
+            return LLMResponse(
+                content=data["response"].strip(),
+                model=self.model,
+                usage={
+                    "prompt_tokens": data.get("prompt_eval_count", 0),
+                    "completion_tokens": data.get("eval_count", 0),
+                    "total_tokens": data.get("prompt_eval_count", 0) + data.get("eval_count", 0)
+                }
+            )
+        except self.requests.exceptions.RequestException as e:
+            raise RuntimeError(f"Ollama API error: {e}. Is Ollama running? (ollama serve)")
+    
+    @property
+    def provider_name(self) -> str:
+        return f"ollama:{self.model}"
+
+
 def get_llm_provider(provider: Optional[str] = None, model: Optional[str] = None) -> LLMProvider:
     """
     Factory function to get LLM provider.
@@ -167,5 +233,9 @@ def get_llm_provider(provider: Optional[str] = None, model: Optional[str] = None
         model = model or os.getenv("LLM_MODEL", "gpt-3.5-turbo")
         return OpenAIProvider(model=model)
     
+    elif provider == "ollama":
+        model = model or os.getenv("LLM_MODEL", "llama3")
+        return OllamaProvider(model=model)
+    
     else:
-        raise ValueError(f"Unknown LLM provider: {provider}. Supported: 'openai', 'mock'")
+        raise ValueError(f"Unknown LLM provider: {provider}. Supported: 'openai', 'ollama', 'mock'")

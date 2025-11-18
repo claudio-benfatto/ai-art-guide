@@ -9,6 +9,7 @@ from adk.llm.providers import (
     Message,
     MockLLMProvider,
     OpenAIProvider,
+    OllamaProvider,
     get_llm_provider,
 )
 
@@ -18,5 +19,6 @@ __all__ = [
     'Message',
     'MockLLMProvider',
     'OpenAIProvider',
+    'OllamaProvider',
     'get_llm_provider',
 ]
